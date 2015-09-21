@@ -3,14 +3,24 @@ deco.zsh
 
 Enjoy your CUI life with text-decoration!
 
+![deco-gif](https://i.gyazo.com/3904b12225980b477fe51cc0a4676d4d.gif)
 
-Examples
---------
+
+Installation
+------------
+
+### Antigen
 
 ```
-deco -f red -b 233 -u -B foobar                # print decorated 'foobar'
-echo "foobar" | deco -f red -b 233 -u -B       # can also be used with pipe
-echo "$(deco -f red red)$(deco -f blue blue)"  # 'reset' command is not needed unlike zsh buildin 'colors' or 'tput' etc
+antigen bundle amutake/deco.zsh
+antigen apply
+```
+
+### Manual
+
+```
+git clone git://github.com/amutake/deco.zsh /path/to/deco.zsh
+source /path/to/deco.zsh/deco.plugins.zsh # edit your .zshrc and put this line
 ```
 
 
@@ -53,24 +63,6 @@ Show help text and exit.
 ### `-v, --version`
 
 Show the version and exit.
-
-
-Installation
-------------
-
-### Antigen
-
-```
-antigen bundle amutake/decorate.zsh
-antigen apply
-```
-
-### Manual Installation
-
-```
-git clone git://github.com/amutake/deco.zsh
-source /path/to/deco.zsh/deco.plugins.zsh # edit your .zshrc and put this line
-```
 
 
 License
