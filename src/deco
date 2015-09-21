@@ -41,37 +41,6 @@ __deco_build_color() {
   fi
 }
 
-__deco_build_attrs() {
-  local attrs="0"
-  # foreground color
-  if [[ -n ${1[(i)-f]} ]]; then
-    local fg=$(__deco_build_color fg ${1[-f]})
-    if [[ -n $fg ]]; then
-      attrs="$attrs;$fg"
-    fi
-  fi
-  # background color
-  if [[ -n ${1[(i)-b]} ]]; then
-    local bg=$(__deco_build_color bg ${1[-b]})
-    if [[ -n $bg ]]; then
-      attrs="$attrs;$bg"
-    fi
-  fi
-  # underline
-  if [[ -n ${1[(i)-u]} ]]; then
-    attrs="$attrs;4"
-  fi
-  # blink
-  if [[ -n ${1[(i)-B]} ]]; then
-    attrs="$attrs;5"
-  fi
-  # reverse
-  if [[ -n ${1[(i)-r]} ]]; then
-    attrs="$attrs;7"
-  fi
-  echo $attrs
-}
-
 __deco_help() {
   echo "deco: text-decoration for terminal"
   echo ""
