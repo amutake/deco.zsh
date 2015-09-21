@@ -1,4 +1,4 @@
-__deco_version="0.1.0"
+__deco_version="0.1.1"
 
 # <color> -> <integer>
 __deco_foreground_color_number() {
@@ -133,22 +133,24 @@ __deco_main() {
       attrs="$attrs;7"
     fi
 
-    printf "\e[${attrs}m"
+    # switch pipe
     if [[ -t 0 ]]; then
-      # not pipe
-      printf "$@"
-      # no newline
-      if [[ -n ${opts[(i)-n]} ]]; then
-        printf "\e[0m"
-      else
-        print "\e[0m"
+      if [[ -n "$@" ]]; then
+        printf "\e[${attrs}m"
+        printf "$@"
+        # no newline
+        if [[ -n ${opts[(i)-n]} ]]; then
+          printf "\e[0m"
+        else
+          print "\e[0m"
+        fi
       fi
     else
-      # pipe
+      printf "\e[${attrs}m"
       cat
       printf "\e[0m"
     fi
   fi
 }
 
-__deco_main $@
+__deco_main "$@"
