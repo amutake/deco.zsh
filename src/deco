@@ -1,4 +1,4 @@
-__deco_version="0.1.1"
+__deco_version="0.1.2"
 
 # <color> -> <integer>
 __deco_foreground_color_number() {
